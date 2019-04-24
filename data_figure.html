@@ -69,12 +69,12 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div style="width: 500px;">
-    <canvas id="myChart1" width="400" height="400"></canvas>
-    </div>
-    <div style="width: 500px;">
-            <canvas id="myChart" style="width:400px; height:800px;"     ></canvas>
-         </div>
+        <div class="col-md-8 col-md-offset-2">
+          <canvas id="myChart1" width="width:50%" height="height:50%"></canvas>
+          <canvas id="myChart" width="width:50%" height="height:50%"></canvas>
+          <canvas id="canvas" width="width:50%" height="height:50%"></canvas>
+      </div>
+        </div>
 </body>
 </html>
 
@@ -85,7 +85,7 @@
         data: {
             labels: ['电费', '水费', '天然气', ],
             datasets: [{
-                label: '# of Votes',
+                label: '隐藏图表',
                 data: [12, 19, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -140,4 +140,37 @@
                                             data: data,
                                             // options: options
                                     });
+
+                                    var ctx = document.getElementById("canvas").getContext("2d");
+    var myChart = new Chart(ctx, {
+        type: 'line', // line 表示是 曲线图，当然也可以设置其他的图表类型 如柱形图 : bar  或者其他
+        data: {
+            labels : ["星期一","星期二","星期三","星期四","星期五","星期六","星期天"], //按时间段 可以按星期，按月，按年
+            datasets : [
+                {
+                    label: "电费",  //当前数据的说明
+                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
+                    borderColor: "rgba(200,187,205,1)",//数据曲线颜色
+                    pointBackgroundColor: "#fff", //数据点的颜色
+                    data: [80, 90, 100, 30, 67, 59, 88],  //填充的数据
+                },
+                {
+                    label: "水费",  //当前数据的说明
+                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
+                    borderColor: "rgba(75,192,192,1)",//数据曲线颜色
+                    pointBackgroundColor: "#fff", //数据点的颜色
+                    data: [21, 34, 35, 50, 45, 21, 70],  //填充的数据
+                },
+                {
+                    label: "天然气",  //当前数据的说明
+                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
+                    borderColor: "rgba(25,142,122,1)",//数据曲线颜色
+                    pointBackgroundColor: "#fff", //数据点的颜色
+                    data: [55, 24, 99, 20, 25, 41, 10],  //填充的数据
+                }
+            ]
+        }
+    });
+
+                     
     </script>
