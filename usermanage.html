@@ -97,29 +97,30 @@
              <div class="form-group">
                 <div class="modal-content"s>
                     <div class="modal-body">
+
                         <table class="table table-responsive">
                             <tr>
                                 <td>姓名</td>
                                 <td colspan="3">
-                                    <input autocomplete="off" style="width: 150px;font-size: 13px" type="text" id="username" name="username">
+                                    <input autocomplete="off" style="width: 150px;font-size: 13px" type="text" id="username" name="username" required="required">
                                 </td>
                             </tr>
                             <tr>
                                 <td>性别</td>
                                 <td colspan="3">
-                                    <input autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="gender" name="gender">
+                                    <input  autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="gender" name="gender">
                                 </td>
                             </tr>
                             <tr>
                                 <td>手机号</td>
                                 <td colspan="3">
-                                    <input autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="telnumber" name="telnumber">
+                                    <input  autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="telnumber" name="telnumber">
                                 </td>
                                 </tr>
                             <tr>
                                 <td>密码</td>
                                 <td>
-                                    <input autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="password" name="password">
+                                    <input  autocomplete="off" style="width: 150px;font-size: 12px" type="text" id="password" name="password">
                                 </td>
                             </tr>
                             <tr>
@@ -130,6 +131,7 @@
                                 </td>
                             </tr>
                         </table>
+
                     </div>
                 </div>
              </div>
@@ -152,26 +154,47 @@
             $('#subscription_table').modal('show');
         }
         function submit_data() {
+
             var username = $("#username").val();
             var gender = $("#gender").val();
             var telnumber = $("#telnumber").val();
             var password = $("#password").val();
-
-            var userinfo = new Object();
-            userinfo.username = username;
-            userinfo.gender = gender;
-            userinfo.telnumber = telnumber;
-            userinfo.password = password;
-            dataArray.push(userinfo);
-            $('#subscription_table').modal('hide');
-            addCell(userinfo)
+            if (username.length == 0){
+                alert("请输入姓名")
+            } else if (gender.length == 0){
+                alert("请输入性别")
+            } else if (telnumber.length == 0){
+                alert("请输入手机号")
+            }else if (password.length == 0){
+                alert("请设置密码")
+            }else {
+                var userinfo = new Object();
+                userinfo.username = username;
+                userinfo.gender = gender;
+                userinfo.telnumber = telnumber;
+                userinfo.password = password;
+                dataArray.push(userinfo);
+                $('#subscription_table').modal('hide');
+                showcell()
+            }
+        }
+        function showcell() {
+            $('#datacell').empty();
+            for (var i = 0 ; i < dataArray.length; i ++){
+                var obj = dataArray[i];
+                var num = i + 1;
+                var cellhtml = '<tr><td class="text-center">' + num + '</td><td>'+obj.username+'</td><td>'+obj.gender+'</td><td>'+obj.telnumber+'</td><td>'+obj.password+'</td><td class="text-right"><button type="button" onclick="delete_cell(' + i + ')" class="btn btn-info">删除</button></td>/tr>'
+                $(cellhtml).appendTo('#datacell');
+            }
         }
         function addCell(obj) {
-            var cellhtml = '<tr><td class="text-center">' + dataArray.length + '</td><td>'+obj.username+'</td><td>'+obj.gender+'</td><td>'+obj.telnumber+'</td><td>'+obj.password+'</td></tr>'
+            var cellhtml = '<tr><td class="text-center">' + dataArray.length + '</td><td>'+obj.username+'</td><td>'+obj.gender+'</td><td>'+obj.telnumber+'</td><td>'+obj.password+'</td><td class="text-right"><button type="button" onclick="delete_cell(' + dataArray.length + ')" class="btn btn-info">删除</button></td>/tr>'
             $(cellhtml).appendTo('#datacell');
         }
+        function delete_cell(index) {
+            dataArray.splice(index, 1)
+            showcell()
+        }
     </script>
-
-  、
 </body>
 </html>
