@@ -97,8 +97,8 @@
         function clickButton() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-            var istrue = validateCode();
-
+            // var istrue = validateCode();
+            var istrue = true;
             if(username == 'super' && password == '123' && istrue){
                 window.location.href='home.html';
             }else  if (istrue == false) {

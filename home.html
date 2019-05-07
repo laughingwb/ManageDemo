@@ -99,6 +99,7 @@
                                 <th>户主</th>
                                 <th>缴费金额</th>
                                 <th>代理商</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,6 +113,7 @@
                                 <td>2018-01-01~2019-01-01</td>
                                 <td>3￥</td>
                                 <td>物业公司</td>
+                                <td><button style="margin-top: 10px" type="submit" onclick="click_des()" class="form-actions btn btn-social btn-block  btn-info">详情</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -119,7 +121,128 @@
             </div>
         </div>
     </div>
+     <div class="modal fade" id="describle_table" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+             <div class="form-group">
+                <div class="modal-content"s>
+                    <div class="modal-body">
 
+                        <table class="table table-responsive">
+                            <tr>
+                                <td>缴费机构代码</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"   required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>户号</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>流水号</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>机构账单ID</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>缴费金额</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>支付宝付款码</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>滞纳金</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>商户</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>支付状态</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>支付宝交易流水号</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>支付宝用户ID</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ISV流水号</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>出账机构代码</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>机构账单id</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>交易付款日期</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>户主姓名</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>缴费金额</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>业务流水号</td>
+                                <td colspan="5">
+                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
 </body>
  <!--  jQuery and Bootstrap core files    -->
     <script src="assets/js/jquery.js" type="text/javascript"></script>
@@ -128,15 +251,12 @@
 
 	<script src="assets/js/bootstrap-datepicker.js"></script>
 
-    <!--  Get Shit Done Kit PRO Core javascript 	 -->
-	<script src="assets/js/get-shit-done.js"></script>
-
-    <!--  Get Shit Done Kit PRO methods used for demo purpose      -->
-    <script src="assets/js/demo.js"></script>
-
     <script>
         $().ready(function(){
-
         });
+        function click_des() {
+            $('#describle_table').modal('show');
+        }
     </script>
 </html>
+
