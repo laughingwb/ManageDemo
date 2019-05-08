@@ -71,58 +71,34 @@
     </nav>
     <div class="container">
         <div class="col-md-3" style="margin-top: 10px">
-            <select name="huge" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+            <select name="huge" class="selectpicker" id="typeselect" data-style="btn-default btn-block" data-menu-style="dropdown-blue" onchange="getSelectValue()">
                   <option value="water">水费</option>
                   <option value="gas">天然气</option>
                   <option value="electric">电费</option>
             </select>
-                <select name="huge" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                      <option value="water">矩形图表</option>
-                      <option value="gas">饼形图标</option>
+                <select name="huge" class="selectpicker" id="chartselect" data-style="btn-default btn-block" data-menu-style="dropdown-blue" onchange="getSelectchart()">
+                      <option value="bar">矩形图表</option>
+                      <option value="pie">饼形图标</option>
                 </select>
         </div>
         </div>
             
         <div class="col-md-8 col-md-offset-2">
-          <canvas id="myChart1" width="width:50%" height="height:50%"></canvas>
-          <canvas id="myChart" width="width:50%" height="height:50%"></canvas>
+          <canvas id="myChart1" width="width:50%" height="height:50%" style="visibility: visible;"></canvas>
+          <canvas id="myChart" width="width:50%" height="height:50%" style="visibility: hidden;"></canvas>
       </div>
         </div>
 </body>
+<script src="assets/js/jquery.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui.custom.min.js" type="text/javascript"></script>
+<script src="bootstrap3/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="assets/js/bootstrap-datepicker.js"></script>
 </html>
 
 <script>
-    var ctx = document.getElementById('myChart1');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['客户1', '客户2', '客户3', ],
-            datasets: [{
-                label: '隐藏图表',
-                data: [12, 19, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+//    var ctx = document.getElementById('myChart1');
+    showWater();
     var data = {
     labels: [
         "客户1",
@@ -153,5 +129,141 @@
                                             data: data,
                                             // options: options
          });
+
+    function getSelectValue() {
+        var selectString = $("#typeselect").find("option:selected").val();
+        $('#simple_data').empty();
+        if (selectString == 'water')  {
+            showWater();
+        }else if(selectString == 'gas'){
+            showGas();
+        }else  {
+            showelectric();
+        }
+    }
+    function showWater(){
+        var ctx = document.getElementById('myChart1');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                datasets: [{
+                    label: '水费',
+                    data: [12, 19, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function showGas(){
+        var ctx = document.getElementById('myChart1');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                datasets: [{
+                    label: '天然气',
+                    data: [12, 19, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }
+
+    function showelectric(){
+        var ctx = document.getElementById('myChart1');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                datasets: [{
+                    label: '水费',
+                    data: [12, 19, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }
+
+function getSelectchart() {
+    var selectString = $("#chartselect").find("option:selected").val();
+    $('#simple_data').empty();
+    if (selectString == 'bar') {
+        showbar();
+    } else if (selectString == 'pie') {
+        showpie();
+    }
+}
+    function showbar(){
+        document.getElementById("myChart").style.display="none";
+        document.getElementById("myChart1").style.display="inline";
+    }
+
+    function showpie(){
+        document.getElementById("myChart1").style.display="none";
+        document.getElementById("myChart").style.visibility="visible";
+    }
+
+
 
     </script>
