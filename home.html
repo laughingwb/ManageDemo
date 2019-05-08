@@ -77,7 +77,7 @@
                 <input class="datepicker form-control" data-date-format="yyyy-mm-dd"  placeholder=" 结束时间" type="text"/>
             </div>
             <div class="col-md-3" style="margin-top: 10px">
-                <select name="huge" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                <select name="huge" class="selectpicker" id="typeselect" data-style="btn-default btn-block" data-menu-style="dropdown-blue" onchange="getSelectValue()">
                       <option value="water">水费</option>
                       <option value="gas">天然气</option>
                       <option value="electric">电费</option>
@@ -102,19 +102,8 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>王博</td>
-                                <td>1￥</td>
-                                <td>1￥</td>
-                                <td>1￥</td>
-                                <td>1￥</td>
-                                <td>2018-01-01~2019-01-01</td>
-                                <td>3￥</td>
-                                <td>物业公司</td>
-                                <td><button style="margin-top: 10px" type="submit" onclick="click_des()" class="form-actions btn btn-social btn-block  btn-info">详情</button></td>
-                            </tr>
+                        <tbody id="simple_data">
+
                         </tbody>
                     </table>
                 </div>
@@ -126,118 +115,8 @@
              <div class="form-group">
                 <div class="modal-content"s>
                     <div class="modal-body">
-
-                        <table class="table table-responsive">
-                            <tr>
-                                <td>缴费机构代码</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"   required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>户号</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>流水号</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>机构账单ID</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>缴费金额</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>支付宝付款码</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>滞纳金</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text"  required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>商户</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>支付状态</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>支付宝交易流水号</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>支付宝用户ID</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>ISV流水号</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>出账机构代码</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>机构账单id</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>交易付款日期</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>户主姓名</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>缴费金额</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>业务流水号</td>
-                                <td colspan="5">
-                                    <input autocomplete="off" style="width: 250px;font-size: 13px" type="text" required="required">
-                                </td>
-                            </tr>
+                        <table class="table table-responsive" id="datacell">
                         </table>
-
                     </div>
                 </div>
              </div>
@@ -252,10 +131,72 @@
 	<script src="assets/js/bootstrap-datepicker.js"></script>
 
     <script>
-        $().ready(function(){
-        });
-        function click_des() {
+        var datacount = 4;
+        var charge_instArray = new Array('A263286','B237232','Q283728','H236238');
+        var bill_keyArray = new Array('232421','753721','237863','312763');
+        var bill_noArray = new  Array('AHDJSA','AYDJSJ','UWEYWEW','EWTEWU');
+        var pay_idArray = new  Array('5464','9102','9452','61930')
+        var trade_dateArray = new  Array('2019-03-28','2019-04-18','2019-05-28','2019-01-28');
+        var usernameArray = new  Array('王博','小王','小吴','老张');
+        var amountArray = new Array('273￥','534￥','183￥','376￥');
+        var companyArray = new  Array('物业公司1','物业公司2','物业公司3','物业公司4');
+
+        var charge_instArray1 = new Array('632832','188392','16532','985394');
+        var bill_keyArray1 = new Array('232421','753721','237863','312763');
+        var bill_noArray1 = new  Array('AHDJSA','AYDJSJ','UWEYWEW','EWTEWU');
+        var pay_idArray1 = new  Array('3623','643','3234','6645')
+        var amountArray1 = new Array('23￥','54￥','18￥','76￥');
+        var trade_dateArray1 = new  Array('2019-03-28','2019-04-18','2019-05-28','2019-01-28');
+
+        var charge_instArray2 = new Array('873291','13143','53423','43355');
+        var bill_keyArray2 = new Array('23443','34353','25421','887392');
+        var bill_noArray2 = new  Array('HSSJHD','MSHGDD','SYWDNC','DKSSD');
+        var pay_idArray2 = new  Array('2867382748','234235','23432432','143252345')
+        var amountArray2 = new Array('213￥','541￥','134￥','176￥');
+        var trade_dateArray2 = new  Array('2019-02-28','2019-03-14','2019-01-08','2019-03-26');
+
+
+        var dataArray=new Array('户号','缴费机构代码','机构账单ID','流水号','支付宝付款码','缴费金额','滞纳金','商户','支付状态','支付宝交易流水号','支付宝用户ID','出账机构代码','交易付款日期','类型','户主姓名','完成缴费金额');
+        var valueArray=new Array('27961','A7H720','17937','1763829732','672037','534￥','0','天天','完成','YJ279363','62878921','KSHJUW','2019-4-23','水费','王博','534￥');
+        showWater();
+        function showWater(){
+            for (var i = 0; i < datacount; i ++){
+                var cellhtml = '<tr><td>' + i + 1 + '</td><td>'+charge_instArray[i]+'</td><td>'+bill_keyArray[i]+'</td><td>'+bill_noArray[i]+'</td><td>'+pay_idArray[i]+'</td><td>'+trade_dateArray[i]+'</td><td>'+usernameArray[i]+'</td><td>'+ amountArray[i]+'</td><td>'+companyArray[i]+'</td><td><button type="button" onclick="click_des(' + i + ')" class="btn btn-info">详情</button></td><tr>'
+                 $(cellhtml).appendTo('#simple_data');
+            }
+        }
+        function showGas(){
+            for (var i = 0; i < datacount; i ++){
+                var cellhtml = '<tr><td>' + i + 1 + '</td><td>'+charge_instArray1[i]+'</td><td>'+bill_keyArray1[i]+'</td><td>'+bill_noArray1[i]+'</td><td>'+pay_idArray1[i]+'</td><td>'+trade_dateArray1[i]+'</td><td>'+usernameArray[i]+'</td><td>'+ amountArray1[i]+'</td><td>'+companyArray[i]+'</td><td><button type="button" onclick="click_des(' + i + ')" class="btn btn-info">详情</button></td><tr>'
+                 $(cellhtml).appendTo('#simple_data');
+            }
+        }
+        function showelectric(){
+            for (var i = 0; i < datacount; i ++){
+                var cellhtml = '<tr><td>' + i + 1 + '</td><td>'+charge_instArray2[i]+'</td><td>'+bill_keyArray2[i]+'</td><td>'+bill_noArray2[i]+'</td><td>'+pay_idArray2[i]+'</td><td>'+trade_dateArray2[i]+'</td><td>'+usernameArray[i]+'</td><td>'+ amountArray2[i]+'</td><td>'+companyArray[i]+'</td><td><button type="button" onclick="click_des(' + i + ')" class="btn btn-info">详情</button></td><tr>'
+                 $(cellhtml).appendTo('#simple_data');
+            }
+        }
+        function showDescrible() {
+            for (var i = 0; i < dataArray.length; i ++){
+                var describlehtml = '<tr><td>'+dataArray[i]+'</td><td colspan="5"><input readonly="readonly" autocomplete="off" style="width: 250px;font-size: 13px" type="text" value="'+valueArray[i]+'"></td></tr>'
+                $(describlehtml).appendTo('#datacell');
+            }
+        }
+        function click_des(index) {
+            showDescrible();
             $('#describle_table').modal('show');
+        }
+        function getSelectValue() {
+            var selectString = $("#typeselect").find("option:selected").val()
+            $('#simple_data').empty();
+            if (selectString == 'water')  {
+                showWater();
+            }else if(selectString == 'gas'){
+                showGas();
+            }else  {
+                showelectric();
+            }
         }
     </script>
 </html>
