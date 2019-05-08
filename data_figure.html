@@ -69,10 +69,23 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+    <div class="container">
+        <div class="col-md-3" style="margin-top: 10px">
+            <select name="huge" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                  <option value="water">水费</option>
+                  <option value="gas">天然气</option>
+                  <option value="electric">电费</option>
+            </select>
+                <select name="huge" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                      <option value="water">矩形图表</option>
+                      <option value="gas">饼形图标</option>
+                </select>
+        </div>
+        </div>
+            
         <div class="col-md-8 col-md-offset-2">
           <canvas id="myChart1" width="width:50%" height="height:50%"></canvas>
           <canvas id="myChart" width="width:50%" height="height:50%"></canvas>
-          <canvas id="canvas" width="width:50%" height="height:50%"></canvas>
       </div>
         </div>
 </body>
@@ -83,7 +96,7 @@
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['电费', '水费', '天然气', ],
+            labels: ['客户1', '客户2', '客户3', ],
             datasets: [{
                 label: '隐藏图表',
                 data: [12, 19, 3],
@@ -112,9 +125,9 @@
     });
     var data = {
     labels: [
-        "电费",
-        "水费",
-        "天然气"
+        "客户1",
+        "客户2",
+        "客户3"
     ],
     datasets: [
         {
@@ -139,38 +152,6 @@
                                             type: 'pie',
                                             data: data,
                                             // options: options
-                                    });
+         });
 
-                                    var ctx = document.getElementById("canvas").getContext("2d");
-    var myChart = new Chart(ctx, {
-        type: 'line', // line 表示是 曲线图，当然也可以设置其他的图表类型 如柱形图 : bar  或者其他
-        data: {
-            labels : ["星期一","星期二","星期三","星期四","星期五","星期六","星期天"], //按时间段 可以按星期，按月，按年
-            datasets : [
-                {
-                    label: "电费",  //当前数据的说明
-                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
-                    borderColor: "rgba(200,187,205,1)",//数据曲线颜色
-                    pointBackgroundColor: "#fff", //数据点的颜色
-                    data: [80, 90, 100, 30, 67, 59, 88],  //填充的数据
-                },
-                {
-                    label: "水费",  //当前数据的说明
-                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
-                    borderColor: "rgba(75,192,192,1)",//数据曲线颜色
-                    pointBackgroundColor: "#fff", //数据点的颜色
-                    data: [21, 34, 35, 50, 45, 21, 70],  //填充的数据
-                },
-                {
-                    label: "天然气",  //当前数据的说明
-                    fill: true,  //是否要显示数据部分阴影面积块  false:不显示
-                    borderColor: "rgba(25,142,122,1)",//数据曲线颜色
-                    pointBackgroundColor: "#fff", //数据点的颜色
-                    data: [55, 24, 99, 20, 25, 41, 10],  //填充的数据
-                }
-            ]
-        }
-    });
-
-                     
     </script>
