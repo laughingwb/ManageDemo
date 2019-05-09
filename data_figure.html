@@ -100,23 +100,23 @@
 //    var ctx = document.getElementById('myChart1');
     showWater();
     var data = {
-    labels: [
-        "客户1",
-        "客户2",
-        "客户3"
-    ],
+    labels: ['代理客户1', '代理客户2', '代理客户3', '代理客户4','代理客户5'],
     datasets: [
         {
-            data: [300, 50, 100],
+            data: [300, 50, 100,200,100],
             backgroundColor: [
                 "#FF6384",
                 "#36A2EB",
-                "#FFCE56"
+                "#FFCE56",
+                "#FEFE56",
+                "#FFF100"
             ],
             hoverBackgroundColor: [
                 "#FF6384",
                 "#36A2EB",
-                "#FFCE56"
+                "#FFCE56",
+                "#FEFE56",
+                "#FFF100"
             ]
         }]
 };
@@ -146,32 +146,27 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                labels: ['代理客户1', '代理客户2', '代理客户3', '代理客户4','代理客户5'],
                 datasets: [{
                     label: '水费',
-                    data: [12, 19, 3],
+                    data: [43, 34, 23,55,47],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 222, 16, 0.2)',
+                        'rgba(225, 122, 46, 0.2)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
+                        'rgba(255, 222, 16, 1)',
+                        'rgba(225, 122, 46, 1)',
                     ],
                     borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
         });
     }
 
@@ -180,32 +175,27 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                labels: ['代理客户1', '代理客户2', '代理客户3', '代理客户4','代理客户5'],
                 datasets: [{
                     label: '天然气',
-                    data: [12, 19, 3],
+                    data: [22, 59, 3,21,42],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 222, 16, 0.2)',
+                        'rgba(225, 122, 46, 0.2)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
+                        'rgba(255, 222, 16, 1)',
+                        'rgba(225, 122, 46, 1)',
                     ],
                     borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
         });
 
     }
@@ -215,32 +205,27 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['代理客户1', '代理客户2', '代理客户3', ],
+                labels: ['代理客户1', '代理客户2', '代理客户3', '代理客户4','代理客户5'],
                 datasets: [{
-                    label: '水费',
-                    data: [12, 19, 3],
+                    label: '电费',
+                    data: [42, 39, 33,24,11],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 222, 16, 0.2)',
+                        'rgba(225, 122, 46, 0.2)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
+                        'rgba(255, 222, 16, 1)',
+                        'rgba(225, 122, 46, 1)',
                     ],
                     borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
         });
 
     }
