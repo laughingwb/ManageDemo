@@ -109,6 +109,17 @@
                 </div>
             </div>
         </div>
+        <div class="row text-center">
+             <div class="col-md-6 col-md-offset-3">
+                 <ul class="pagination pagination-no-border">
+                      <li><a href="#">&laquo;</a></li>
+                      <li id="one_page" class="active"><a href="#" onclick="changePage(1)">1</a></li>
+                      <li id="two_page"><a href="#" onclick="changePage(2)">2</a></li>
+                      <li id="three_page"><a href="#" onclick="changePage(3)">3</a></li>
+                      <li><a href="#">&raquo;</a></li>
+                 </ul>
+             </div>
+        </div>
     </div>
      <div class="modal fade" id="describle_table" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -194,6 +205,26 @@
             }else if(selectString == 'gas'){
                 showGas();
             }else  {
+                showelectric();
+            }
+        }
+        function changePage(index) {
+            var selectString = $("#typeselect").find("option:selected").val()
+            $('#simple_data').empty();
+            if (index == 1){
+                document.getElementById("one_page").className = "active";
+                document.getElementById("two_page").className = "";
+                document.getElementById("three_page").className = "";
+                showWater();
+            } else if(index == 2){
+                document.getElementById("one_page").className = "";
+                document.getElementById("two_page").className = "active";
+                document.getElementById("three_page").className = "";
+                showGas();
+            }else {
+                document.getElementById("one_page").className = "";
+                document.getElementById("two_page").className = "";
+                document.getElementById("three_page").className = "active";
                 showelectric();
             }
         }
